@@ -73,7 +73,7 @@ class IdentifierTest < TokenTest
 end
 
 def isNumber?(word)
-  word =~ /\d*$/
+  word =~ /\d\d*$/
 end
 
 class NumberTest < TokenTest
