@@ -43,7 +43,7 @@ def extractAllTokens
           token.value = word
           tokens.push(token)
         else
-          puts "Could not classify token!"
+          raise "Could not classify token!"
         end
       end
     end
