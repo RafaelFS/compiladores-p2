@@ -27,16 +27,17 @@ def classify(word)
   return tokenType
 end
 
-def extractAllTokens
+def extractAllTokens (filename)
+  puts "Initializing token extraction..."
+
   tokens = Array.new
-  File.readlines("test6.l").each do |line|
+  File.readlines(filename).each do |line|
     words = line.split
 
     words.each do |word|
       if startsComment?(word) then
         break
       else
-        puts(word)
         token = Token.new
         token.type = classify(word)
         if token.type != "" then
@@ -48,6 +49,7 @@ def extractAllTokens
       end
     end
   end
+  puts "Extracted the following tokens:"
   tokens.each do |token|
     puts "type:%s value:%s" % [token.type, token.value]
   end
