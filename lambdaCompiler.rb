@@ -1,5 +1,6 @@
 require "./lex"
 require 'optparse'
+require "./parser"
 
 Options = Struct.new(:input)
 
@@ -28,4 +29,5 @@ end
 options = ArgumentParser.parse(ARGV)
 filename = options.input
 
-extractAllTokens(filename)
+tokens = extractAllTokens(filename)
+parse(tokens)
