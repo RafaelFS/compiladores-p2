@@ -17,24 +17,41 @@ def startsComment?(word)
 end
 
 def classify(word)
+  tokenType = ""
   tokenTypesTests.each do |tokenTypeTest|
-    if tokenTypeTest.test(word)
-      puts tokenTypeTest.type
+    if tokenTypeTest.test(word) then
+      tokenType = tokenTypeTest.type
       break
     end
   end
+  return tokenType
 end
 
-File.readlines("test6.l").each do |line|
-  words = line.split
+def extractAllTokens
+  tokens = Array.new
+  File.readlines("test6.l").each do |line|
+    words = line.split
 
-  words.each do |word|
-    if startsComment?(word) then
-      break
-    else
-      puts(word)
-      classify(word)
+    words.each do |word|
+      if startsComment?(word) then
+        break
+      else
+        puts(word)
+        token = Token.new
+        token.type = classify(word)
+        if token.type != "" then
+          token.value = word
+          tokens.push(token)
+        else
+          puts "Could not classify token!"
+        end
+      end
     end
   end
-
+  tokens.each do |token|
+    puts "type:%s value:%s" % [token.type, token.value]
+  end
+  return tokens
 end
+
+extractAllTokens
