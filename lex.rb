@@ -7,7 +7,8 @@ def tokenTypesTests
     LabelDeclarationTest.new,
     RegisterTest.new,
     OperationTest.new,
-    IdentifierTest.new,
+    ReferenceTest.new,
+    LabelTest.new,
     NumberTest.new
   ]
 end
@@ -44,7 +45,7 @@ def extractAllTokens (filename)
           token.value = word
           tokens.push(token)
         else
-          raise "Could not classify token!"
+          raise "Could not classify token with value: %s" % word
         end
       end
     end

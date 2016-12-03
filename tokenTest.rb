@@ -58,17 +58,32 @@ class OperationTest < TokenTest
   end
 end
 
-def isIdentifier?(word)
-  word =~ /[a-zA-Z].*$/
+def isReference?(word)
+  word =~ /[a-zA-Z][a-zA-Z\d]*!$/
 end
 
-class IdentifierTest < TokenTest
+class ReferenceTest < TokenTest
   def initialize
-    super(TOKEN_TYPE_IDENTIFIER);
+    super(TOKEN_TYPE_REFERENCE);
   end
 
   def test(word)
-    isIdentifier?(word)
+    isReference?(word)
+  end
+end
+
+
+def isLabel?(word)
+  word =~ /[a-zA-Z][a-zA-Z\d]*$/
+end
+
+class LabelTest < TokenTest
+  def initialize
+    super(TOKEN_TYPE_LABEL);
+  end
+
+  def test(word)
+    isLabel?(word)
   end
 end
 

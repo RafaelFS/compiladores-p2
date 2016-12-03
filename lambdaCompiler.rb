@@ -3,7 +3,7 @@ require 'optparse'
 
 Options = Struct.new(:input)
 
-class Parser
+class ArgumentParser
   def self.parse(options)
     args = Options.new("input.l")
 
@@ -25,7 +25,7 @@ class Parser
   end
 end
 
-options = Parser.parse(ARGV)
+options = ArgumentParser.parse(ARGV)
 filename = options.input
 
 extractAllTokens(filename)
