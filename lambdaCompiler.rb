@@ -1,0 +1,3 @@
+require "./lex"
+
+extractAllTokens

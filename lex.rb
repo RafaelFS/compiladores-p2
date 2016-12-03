@@ -53,5 +53,3 @@ def extractAllTokens
   end
   return tokens
 end
-
-extractAllTokens
