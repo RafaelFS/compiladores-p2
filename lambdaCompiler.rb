@@ -1,6 +1,8 @@
 require "./lex"
 require 'optparse'
 require "./parser"
+require "./semantic"
+require "./output_generator"
 
 Options = Struct.new(:input)
 
@@ -31,3 +33,4 @@ filename = options.input
 
 tokens = extractAllTokens(filename)
 parse(tokens)
+generate_output_file(generate_code(tokens))

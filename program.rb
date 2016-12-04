@@ -183,7 +183,7 @@ end
 
 input_program = nil
 # output_generator should swap the comment below with the apropriate input_program array
-#<<MARKER_FOR_GENERATOR>>#
+input_program = [2, 266, 255, 50, 255, 268, 266, 4, 266, 281, 0, 255, 3, 1, 34, 5, 255, 2, 32, 255, 3, 34, 255, 1, 255]
 
 program1 = [4, 7, 255]
 program2 = [4,32]
